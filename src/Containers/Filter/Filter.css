@@ -1,0 +1,14 @@
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+  background: white;
+  opacity: .6;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}

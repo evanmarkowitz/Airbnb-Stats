@@ -4,3 +4,8 @@
   height: 100vh;
   overflow: hidden;
 }
+
+.headline {
+  text-align: center;
+  color: white;
+}
