@@ -11,10 +11,10 @@ export class Filter extends Component {
       roomType: '',
       borough: '',
       Brooklyn: ['Williamsburg', 'Bedford-Stuyvesant', 'Bushwick', 'Crown Heights', 'Greenpoint', 'Financial District', 'Flatbush',
-    'Clinton Hill', 'Park Slope', 'Fort Greene'],
+    'Clinton Hill', 'Park Slope', 'Fort Greene', 'Sunset Park'],
       Manhattan: ['Harlem', 'Upper West Side', 'Hell/s Kitchen', 'East Village', 'Upper East Side', 
-      'Midtown', 'Chelsea',  'Lower East Side', 'West Village', 'Murray Hill', 'Greenwich Village', 'Soho'], 
-      Queens: ['Astoria', 'Long Island City', 'Flushing', 'Ridgewood', ],
+      'Midtown', 'Chelsea',  'Lower East Side', 'West Village', 'Murray Hill', 'Greenwich Village', 'Soho', 'Chinatown', 'Gramercy'], 
+      Queens: ['Astoria', 'Long Island City', 'Flushing', 'Ridgewood', 'Sunnyside', 'Ditmars Steinway' ],
       chosenHood: ''
     }
   }
@@ -79,7 +79,7 @@ export class Filter extends Component {
             value='Queens'>
             Queens</button>
 
-            <button className='filter-button'
+            {/* <button className='filter-button'
             onClick={(event) => this.handleChange(event)}
             name='borough'
             value='Bronx'>
@@ -89,7 +89,7 @@ export class Filter extends Component {
             onClick={(event) => this.handleChange(event)}
             name='borough'
             value='Staten Island'>
-            Staten Island</button>
+            Staten Island</button> */}
 
           </div>
 
@@ -97,7 +97,7 @@ export class Filter extends Component {
         {(this.state.roomType && this.state.borough) &&
         <article className='neighborhoods'>
           <h3>Neighborhoods</h3>
-          <div>
+          <div className='buttons'>
             {this.buildNeighborhood()}
           </div>
         </article> }
