@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Filter.css'
+import { fetchApartments } from '../../ApiCalls/apiCall'
 
 export class Filter extends Component {
   constructor() {
@@ -14,6 +15,7 @@ export class Filter extends Component {
       Manhattan: ['Harlem', 'Upper West Side', 'Hell/s Kitchen', 'East Village', 'Upper East Side', 
       'Midtown', 'Chelsea',  'Lower East Side', 'West Village', 'Murray Hill', 'Greenwich Village', 'Soho'], 
       Queens: ['Astoria', 'Long Island City', 'Flushing', 'Ridgewood', ],
+      chosenHood: ''
     }
   }
   handleChange = async (event) => {
@@ -26,12 +28,18 @@ export class Filter extends Component {
       return <button
         name='hood'
         value={hood}
+        onClick={event => this.chooseHood(event)}
         className='filter-button'>{hood}
       </button>
     })
   }
 
-  
+  chooseHood = async (event) => {
+    let chosenHood =  [event.target.value][0]
+    let data = await fetchApartments(this.state.apiKey, chosenHood)
+    await console.log(data)
+  }
+
 
   render() {
     return (

@@ -9,7 +9,7 @@ export const fetchApartments = async (apiKey, neighborhood) => {
       throw new Error('error')
     }
     const data = await response.json()
-    await this.setState({ data: data.records })
+    return data
   }
   catch (error) {
     throw new Error(error.message)
