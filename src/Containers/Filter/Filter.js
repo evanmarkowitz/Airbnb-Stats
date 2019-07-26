@@ -3,6 +3,7 @@ import './Filter.css'
 import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getHood} from '../../actions/index.js'
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router'; 
 
 export class Filter extends Component {
   constructor() {
@@ -105,17 +106,19 @@ export class Filter extends Component {
             {this.buildNeighborhood()}
           </div>
         </article> }
-
+        {this.props.apts.length > 0 && <Redirect to='/results'/>}
       </section>
     )
   }
 }
 
-// export const mapStateToProps
+export const mapStateToProps = (state) => ({
+  apts: state.apts
+})
 
 export const mapDispatchToProps = (dispatch) => ({
   getApts: (apts) => dispatch(getApts(apts)),
   getHood: (hood) => dispatch(getHood(hood))
 })
 
-export default connect(null, mapDispatchToProps)(Filter)
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)
