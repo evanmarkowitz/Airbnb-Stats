@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Filter.css'
-import { fetchApartments } from '../../ApiCalls/apiCall'
+import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getHood} from '../../actions/index.js'
 import { connect } from 'react-redux';
 
@@ -38,8 +38,9 @@ export class Filter extends Component {
 
   chooseHood = async (event) => {
     let chosenHood =  [event.target.value][0]
-    let data = await fetchApartments(this.state.apiKey, chosenHood)
-    await this.props.getApts(data.records)
+    let data = await fetchApartments(this.state.apiKey, chosenHood, this.state.roomType)
+    let cleanApartments = apartmentCleaner(data.records)
+    await this.props.getApts(cleanApartments)
     await this.props.getHood(chosenHood)
   }
 
@@ -53,12 +54,12 @@ export class Filter extends Component {
 
             <button onClick={(event) => this.handleChange(event)}
             name='roomType'
-            value='entire_apartment'
+            value='Entire+home%2Fapt'
             className='filter-button'>Entire Apartment</button>
 
             <button onClick={(event) => this.handleChange(event)}
             name='roomType'
-            value='room'
+            value='Private+room'
             className='filter-button'>Room</button>
 
           </div>
