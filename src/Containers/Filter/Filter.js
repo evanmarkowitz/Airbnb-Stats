@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Filter.css'
 import { fetchApartments } from '../../ApiCalls/apiCall'
+import {getApts, getHood} from '../../actions/index.js'
+import { connect } from 'react-redux';
 
 export class Filter extends Component {
   constructor() {
@@ -37,7 +39,8 @@ export class Filter extends Component {
   chooseHood = async (event) => {
     let chosenHood =  [event.target.value][0]
     let data = await fetchApartments(this.state.apiKey, chosenHood)
-    await console.log(data)
+    await this.props.getApts(data.records)
+    await this.props.getHood(chosenHood)
   }
 
 
@@ -107,4 +110,11 @@ export class Filter extends Component {
   }
 }
 
-export default Filter
+// export const mapStateToProps
+
+export const mapDispatchToProps = (dispatch) => ({
+  getApts: (apts) => dispatch(getApts(apts)),
+  getHood: (hood) => dispatch(getHood(hood))
+})
+
+export default connect(null, mapDispatchToProps)(Filter)

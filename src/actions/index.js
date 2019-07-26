@@ -1,6 +1,6 @@
-export const getApts = (apt) => ({
+export const getApts = (apts) => ({
   type: 'GET_APT',
-  apt
+  apts
 })
 
 export const getHood = (hood) => ({

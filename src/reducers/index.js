@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { aptReducer } from './AptReducer';
+import { aptReducer } from './aptReducer';
 import { hoodReducer } from './hoodReducer'
 
 
 const rootReducer = combineReducers({
-  apartments: aptReducer,
+  apts: aptReducer,
   hood: hoodReducer
 });
 
