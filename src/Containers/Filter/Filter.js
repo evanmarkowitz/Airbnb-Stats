@@ -85,19 +85,6 @@ export class Filter extends Component {
             name='borough'
             value='Queens'>
             Queens</button>
-
-            {/* <button className='filter-button'
-            onClick={(event) => this.handleChange(event)}
-            name='borough'
-            value='Bronx'>
-            Bronx</button>
-
-            <button className='filter-button'
-            onClick={(event) => this.handleChange(event)}
-            name='borough'
-            value='Staten Island'>
-            Staten Island</button> */}
-
           </div>
 
         </article>
@@ -108,7 +95,6 @@ export class Filter extends Component {
             {this.buildNeighborhood()}
           </div>
         </article> }
-        {/* {this.props.apts.length > 0 && <Redirect to='/results'/>} */}
         
       </section>
     )

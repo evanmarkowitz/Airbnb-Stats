@@ -1,18 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Map, GoogleApiWrapper , Marker} from 'google-maps-react';
+import { Map, GoogleApiWrapper , Marker, InfoWindow} from 'google-maps-react';
+
 
 import './Results.css'
 
 export const Result = ({ apts, hood, google}) => {
 
   const buildApts = () => {
-    console.log(apts.apts)
     return apts.apts.map((apt,i) => {
       return <Marker key={i} id={i} position={{
         lat: apt.lat,
         lng: apt.long,
-      }} />
+      }}
+      onClick = {test}
+      >
+      </Marker>
     })
   }
 
@@ -21,7 +24,7 @@ export const Result = ({ apts, hood, google}) => {
     height: '80%',
     margin: 'auto',
   };
-  // console.log(apts)
+
   return (
     <section className='results'>
       <p>{hood}</p>
