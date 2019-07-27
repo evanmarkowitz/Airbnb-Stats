@@ -44,9 +44,11 @@ export class Filter extends Component {
     await this.props.getApts(cleanApartments)
     await this.props.getHood(chosenHood)
   }
+  
 
 
   render() {
+  
     return (
       <section className = 'filter-section'>
         <article>
@@ -107,6 +109,7 @@ export class Filter extends Component {
           </div>
         </article> }
         {this.props.apts.length > 0 && <Redirect to='/results'/>}
+        
       </section>
     )
   }

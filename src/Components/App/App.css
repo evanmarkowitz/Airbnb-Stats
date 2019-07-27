@@ -1,11 +1,12 @@
 .app {
-  background: url('../../Images/skyline-grey.jpg') no-repeat center center fixed;
+  background: url('../../Images/skyline-grey.jpg') center center ;
   background-size: cover;
   height: 100vh;
-  overflow: hidden;
+ 
 }
 
 .headline {
   text-align: center;
   color: white;
+  margin-top: 0;
 }

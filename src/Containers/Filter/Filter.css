@@ -24,3 +24,9 @@
   padding: 4px;
   font-weight: bold;
 }
+
+.map {
+  width: 80%;
+  margin: auto;
+  height: 400px;
+}
