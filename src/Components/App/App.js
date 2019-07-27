@@ -4,8 +4,10 @@ import Filter from '../../Containers/Filter/Filter.js'
 import Results from '../../Containers/Results/Results.js'
 import { Switch, Route } from 'react-router-dom';
 import {useSpring, animated} from 'react-spring'
+import { connect } from 'react-redux';
 
-const App =() => {
+
+const App = (apts, hood) => {
 
   const fade = useSpring({
     from: { opacity: 0 }, opacity: 1
@@ -13,15 +15,20 @@ const App =() => {
 
 
   return (
-    <Switch>
-    <main className='app'>
-      <animated.h1 className='headline' style={fade}>AIRBNB PRICES BY NEIGHBORHOOD</animated.h1>
-      <Route exact path = '/' render={() => <Filter />} />
-      <Route exact path = '/results' render={() => <Results />} />
-  
-      </main>
-    </Switch>
+    
+  <main className='app'>
+    <animated.h1 className='headline' style={fade}>AIRBNB PRICES BY NEIGHBORHOOD</animated.h1>
+      <Filter />
+      <Results apts={apts}/>
+    </main>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  apts: state.apts,
+  hood: state.hood
+})
+
+export default connect(mapStateToProps)(App)
+
+// export default App;

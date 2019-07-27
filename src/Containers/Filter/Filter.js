@@ -108,7 +108,7 @@ export class Filter extends Component {
             {this.buildNeighborhood()}
           </div>
         </article> }
-        {this.props.apts.length > 0 && <Redirect to='/results'/>}
+        {/* {this.props.apts.length > 0 && <Redirect to='/results'/>} */}
         
       </section>
     )
