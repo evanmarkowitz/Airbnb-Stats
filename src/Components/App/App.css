@@ -1,0 +1,12 @@
+.app {
+  background: url('../../Images/skyline-grey.jpg') center center ;
+  background-size: cover;
+  height: 100vh;
+ 
+}
+
+.headline {
+  text-align: center;
+  color: white;
+  margin-top: 0;
+}
