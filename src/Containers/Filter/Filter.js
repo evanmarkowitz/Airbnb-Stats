@@ -8,7 +8,6 @@ export class Filter extends Component {
   constructor() {
     super()
     this.state = {
-      apiKey: 'cb78dd3d7e5bf3d42454677afe5f7c591993e1bd9bbe4c716752bdbe',
       city: "New-york-city",
       roomType: '',
       borough: '',

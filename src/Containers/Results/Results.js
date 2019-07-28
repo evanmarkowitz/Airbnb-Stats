@@ -8,7 +8,7 @@ import './Results.css'
 export const Result = ({ apts, hood, google}) => {
 
   const buildApts = () => {
-    return apts.apts.map((apt,i) => {
+    return apts.map((apt,i) => {
       return <Marker key={i} id={i} position={{
         lat: apt.lat,
         lng: apt.long,
