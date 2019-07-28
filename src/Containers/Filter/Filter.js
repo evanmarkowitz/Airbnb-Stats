@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Filter.css'
 import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
-import {getApts, getHood} from '../../actions/index.js'
+import {getApts, getHood, getAptType} from '../../actions/index.js'
 import { connect } from 'react-redux';
 
 export class Filter extends Component {
@@ -56,10 +56,9 @@ export class Filter extends Component {
     let cleanApartments = apartmentCleaner(data.records)
     await this.props.getApts(cleanApartments)
     await this.props.getHood(chosenHood)
+    await this.props.getAptType(this.state.roomType)
   }
   
-
-
   render() {
   
     return (
@@ -124,7 +123,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   getApts: (apts) => dispatch(getApts(apts)),
-  getHood: (hood) => dispatch(getHood(hood))
+  getHood: (hood) => dispatch(getHood(hood)),
+  getAptType: room => dispatch(getAptType(room))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter)
