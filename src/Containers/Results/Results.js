@@ -5,7 +5,7 @@ import { Map, GoogleApiWrapper , Marker, InfoWindow} from 'google-maps-react';
 
 import './Results.css'
 
-export const Result = ({ apts, hood, google, aptType}) => {
+export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
   
   const filterApartments = () => {
     let aptsByHood = apts
@@ -32,9 +32,7 @@ export const Result = ({ apts, hood, google, aptType}) => {
     })
   }
 
-  const setCurrApt = (apt) => {
-    console.log(apt)
-  }
+
 
   const mapStyles = {
     width: '70%',

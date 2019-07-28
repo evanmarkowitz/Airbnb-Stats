@@ -1,3 +1,5 @@
+import { bindActionCreators } from "redux";
+
 export const getApts = (apts) => ({
   type: 'GET_APT',
   apts
@@ -11,4 +13,9 @@ export const getHood = (hood) => ({
 export const getAptType = (aptType) => ({
   type: 'GET_TYPE',
   aptType
+})
+
+export const getCurrApt = (currApt) => ({
+  type: 'GET_CURR_APT',
+  currApt
 })
