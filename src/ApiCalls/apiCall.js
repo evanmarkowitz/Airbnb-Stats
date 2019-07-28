@@ -5,11 +5,12 @@ export const fetchApartments = async (apiKey, neighborhood, roomType) => {
     const options = {
       method: 'GET',
     }
-    const response = await fetch(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=air-bnb-listings&rows=50&key=${apiKey}&facet=neighbourhood&facet=room_type&facet=column_10&facet=calculated_host_listings_count&facet=city&facet=column_19&refine.city=New-york-city&refine.neighbourhood=${neighborhood}&refine.room_type=${roomType}&exclude.number_of_reviews=0` , options)
+    const response = await fetch(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=air-bnb-listings&rows=100&key=${apiKey}&facet=neighbourhood&facet=room_type&facet=column_10&facet=calculated_host_listings_count&facet=city&facet=column_19&refine.city=New-york-city` , options)
     if (!response.ok) {
       throw new Error('error')
     }
     const data = await response.json()
+    await console.log(data)
     return data 
   }
   catch (error) {
@@ -24,8 +25,11 @@ export const apartmentCleaner = (apts) => {
       id: apt.fields.id,
       numReviews: apt.fields.number_of_reviews,
       price: apt.fields.column_10,
-      roomType: apt.fields.room_type,
-      name: apt.fields.name
+      aptType: apt.fields.room_type,
+      name: apt.fields.name,
+      hood: apt.fields.neighbourhood,
+      lat: apt.fields.coordinates[0],
+      long: apt.fields.coordinates[1]
     }
   }) 
   return cleanedApts
