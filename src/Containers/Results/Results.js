@@ -26,18 +26,24 @@ export const Result = ({ apts, hood, google, aptType}) => {
         lat: apt.lat,
         lng: apt.long,
       }}
+      onClick={() => setCurrApt(apt)}
       >
       </Marker>
     })
   }
 
+  const setCurrApt = (apt) => {
+    console.log(apt)
+  }
+
   const mapStyles = {
     width: '70%',
-    height: '50%',
+    height: '60%',
     margin: '0',
     boxShadow: '0px 20px 40px grey',
   };
 
+ 
   return (
     <section className='results'>
       <Map

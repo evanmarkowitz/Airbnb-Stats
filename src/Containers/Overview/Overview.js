@@ -34,10 +34,10 @@ const Overview = ({hood, aptType, apts}) => {
 
   return (
     <section className='overview'>
+      <h3>Filtered By:</h3>
       <p>Apartment Type: {currentAptType}</p>
       <p>Neighborhood: {currentHood}</p>
       <p>Average Price: {calcAvgPrice()}</p>
-
     </section>
   )
 }
