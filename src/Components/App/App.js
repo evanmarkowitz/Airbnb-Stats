@@ -7,6 +7,7 @@ import statue from '../../Images/statue-of-liberty.svg'
 import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getCurrApt, getHood, getAptType} from '../../actions/index.js'
 import Overview  from '../../Containers/Overview/Overview'
+import CurrApt from '../../Containers/CurrApt/CurrApt'
 
 
 
@@ -39,7 +40,10 @@ class App extends Component {
       </header>
         <Filter />
         <section className= 'body'>
-          <Overview />
+          <aside>
+            <Overview />
+            <CurrApt/>
+          </aside>
           <Results apts={this.props.apts} hood={this.props.hood} aptType={this.props.aptType} setCurrApt={this.setCurrApt}/>
         </section>
       </main>
