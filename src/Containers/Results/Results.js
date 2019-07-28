@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Map, GoogleApiWrapper , Marker, InfoWindow} from 'google-maps-react';
-
-
+import { Map, GoogleApiWrapper , Marker} from 'google-maps-react';
 import './Results.css'
+
 
 export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
   
@@ -32,6 +31,26 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
     })
   }
 
+  const getInitalCenter = () => {
+   let fa = filterApartments()
+    let startingPoint = {lat: 40.734184867531, lng: -73.99849589734207}
+    let zoomNum = 11
+    if(fa !== apts) {
+      startingPoint = {lat: fa[0].lat, lng: fa[0].long}
+      zoomNum =13 
+    }
+    console.log(startingPoint)
+    return <Map
+    google={google}
+    zoom={zoomNum}
+    // className='map'
+    style={mapStyles}
+    center={startingPoint}
+      >
+    {buildApts()}
+    </Map>
+  }
+
 
 
   const mapStyles = {
@@ -44,15 +63,16 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
  
   return (
     <section className='results'>
-      <Map
+      {getInitalCenter()}
+      {/* <Map
           google={google}
           zoom={11}
           // className='map'
           style={mapStyles}
-          initialCenter={{ lat: 40.7527, lng: -73.9943}}
+          initialCenter={getInitalCenter()}
         >
       {buildApts()}
-      </Map>
+      </Map> */}
     </section>
   )
 }
