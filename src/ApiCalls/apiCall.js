@@ -25,7 +25,7 @@ export const apartmentCleaner = (apts) => {
       id: apt.fields.id,
       numReviews: apt.fields.number_of_reviews,
       price: apt.fields.column_10,
-      roomType: apt.fields.room_type,
+      aptType: apt.fields.room_type,
       name: apt.fields.name,
       hood: apt.fields.neighbourhood,
       lat: apt.fields.coordinates[0],

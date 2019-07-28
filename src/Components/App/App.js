@@ -32,7 +32,7 @@ class App extends Component {
       </header>
         <section className= 'body'>
           <Filter />
-          <Results apts={this.props.apts} hood={this.props.hood}/>
+          <Results apts={this.props.apts} hood={this.props.hood} aptType={this.props.aptType}/>
         </section>
       </main>
     );
@@ -41,7 +41,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   apts: state.apts,
-  hood: state.hood
+  hood: state.hood,
+  aptType: state.aptType
 })
 
 

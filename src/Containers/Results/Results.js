@@ -5,14 +5,18 @@ import { Map, GoogleApiWrapper , Marker, InfoWindow} from 'google-maps-react';
 
 import './Results.css'
 
-export const Result = ({ apts, hood, google}) => {
+export const Result = ({ apts, hood, google, aptType}) => {
   
   const filterApartments = () => {
     let aptsByHood = apts
     if (hood !== ''){
       aptsByHood = apts.filter(apt => apt.hood === hood)
+    } 
+    let aptsByRoomType = aptsByHood
+    if (aptType !== '') {
+      aptsByRoomType = aptsByRoomType.filter(apt => apt.aptType === aptType)
     }
-    return aptsByHood
+    return aptsByRoomType
   }
 
   const buildApts = () => {

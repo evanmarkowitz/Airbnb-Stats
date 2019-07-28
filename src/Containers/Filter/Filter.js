@@ -51,11 +51,13 @@ export class Filter extends Component {
 
   chooseHood = async (event) => {
     let chosenHood =  [event.target.value][0]
-    let data = await fetchApartments(this.state.apiKey, chosenHood, this.state.roomType)
-    let cleanApartments = apartmentCleaner(data.records)
-    await this.props.getApts(cleanApartments)
     await this.props.getHood(chosenHood)
-    await this.props.getAptType(this.state.roomType)
+  }
+
+  chooseAptType = (event) => {
+    console.log([event.target.value][0])
+    let chosenAptType =  [event.target.value][0]
+    this.props.getAptType(chosenAptType)
   }
   
   render() {
@@ -67,12 +69,12 @@ export class Filter extends Component {
 
          {this.state.typeOfAprtment && 
          <div className='buttons'>
-            <button onClick={(event) => this.handleChange(event)}
+            <button onClick={(event) => this.chooseAptType(event)}
             name='roomType'
             value='Entire home/apt'
             className='filter-button'>Entire Apartment</button>
 
-            <button onClick={(event) => this.handleChange(event)}
+            <button onClick={(event) => this.chooseAptType(event)}
             name='roomType'
             value='Private room'
             className='filter-button'>Room</button>
