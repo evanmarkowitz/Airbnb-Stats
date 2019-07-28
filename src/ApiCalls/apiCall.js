@@ -5,7 +5,7 @@ export const fetchApartments = async (apiKey, neighborhood, roomType) => {
     const options = {
       method: 'GET',
     }
-    const response = await fetch(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=air-bnb-listings&rows=10&key=${apiKey}&facet=neighbourhood&facet=room_type&facet=column_10&facet=calculated_host_listings_count&facet=city&facet=column_19&refine.city=New-york-city` , options)
+    const response = await fetch(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=air-bnb-listings&rows=100&key=${apiKey}&facet=neighbourhood&facet=room_type&facet=column_10&facet=calculated_host_listings_count&facet=city&facet=column_19&refine.city=New-york-city` , options)
     if (!response.ok) {
       throw new Error('error')
     }

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import statue from '../../Images/statue-of-liberty.svg'
 import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getHood, getAptType} from '../../actions/index.js'
+import Overview  from '../../Containers/Overview/Overview'
 
 
 class App extends Component {
@@ -30,8 +31,9 @@ class App extends Component {
         <h1 className='headline'>AIRBNB PRICES BY NEIGHBORHOOD</h1>
         <img className='statue' src={statue} alt='statue of liberty icon'></img>
       </header>
+        <Filter />
         <section className= 'body'>
-          <Filter />
+          <Overview />
           <Results apts={this.props.apts} hood={this.props.hood} aptType={this.props.aptType}/>
         </section>
       </main>

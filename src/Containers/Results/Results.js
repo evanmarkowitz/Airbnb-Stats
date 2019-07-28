@@ -32,9 +32,10 @@ export const Result = ({ apts, hood, google, aptType}) => {
   }
 
   const mapStyles = {
-    width: '80%',
-    height: '80%',
-    margin: 'auto',
+    width: '70%',
+    height: '50%',
+    margin: '0',
+    boxShadow: '0px 20px 40px grey',
   };
 
   return (
@@ -42,7 +43,7 @@ export const Result = ({ apts, hood, google, aptType}) => {
       <Map
           google={google}
           zoom={11}
-          className='map'
+          // className='map'
           style={mapStyles}
           initialCenter={{ lat: 40.7527, lng: -73.9943}}
         >
