@@ -3,7 +3,6 @@ import './Filter.css'
 import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getHood} from '../../actions/index.js'
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router'; 
 
 export class Filter extends Component {
   constructor() {
@@ -18,15 +17,29 @@ export class Filter extends Component {
       Manhattan: ['Harlem', 'Upper West Side', 'Hell/s Kitchen', 'East Village', 'Upper East Side', 
       'Midtown', 'Chelsea',  'Lower East Side', 'West Village', 'Murray Hill', 'Greenwich Village', 'Soho', 'Chinatown', 'Gramercy'], 
       Queens: ['Astoria', 'Long Island City', 'Flushing', 'Ridgewood', 'Sunnyside', 'Ditmars Steinway' ],
-      chosenHood: ''
+      chosenHood: '',
+      typeOfAprtment: false,
+      boroughShow: false,
+      hoodsShow: false,
     }
   }
+
+  toggleType = () => {
+    this.setState({typeOfAprtment: !this.state.typeOfAprtment})
+  }
+  toggleBorough= () => {
+    this.setState({boroughShow: !this.state.boroughShow})
+  }
+  toggleHood = () => {
+    this.setState({hoodsShow: !this.state.hoodsShow})
+  }
+
   handleChange = async (event) => {
     await this.setState({[event.target.name]: event.target.value})
   }
 
   buildNeighborhood = () => {
-    let hoods =  this.state[this.state.borough]
+    let hoods =  this.state[this.state.borough] || []
     return hoods.map(hood => {
       return <button
         name='hood'
@@ -51,10 +64,11 @@ export class Filter extends Component {
   
     return (
       <section className = 'filter-section'>
-        <article>
-          <h3>Type of apartment</h3>
-          <div className='buttons'>
+        <section className ='type-of-apartment'>
+          <h3 onClick={this.toggleType}>Type of apartment</h3>
 
+         {this.state.typeOfAprtment && 
+         <div className='buttons'>
             <button onClick={(event) => this.handleChange(event)}
             name='roomType'
             value='Entire+home%2Fapt'
@@ -64,38 +78,41 @@ export class Filter extends Component {
             name='roomType'
             value='Private+room'
             className='filter-button'>Room</button>
+          </div>}
+        </section>
+        <section className='borough'>
+          <h3 onClick={this.toggleBorough}>Borough</h3>
+          {this.state.boroughShow && 
+            <div className='buttons'>
+              <button className='filter-button'
+              onClick={(event) => this.handleChange(event)}
+              name='borough'
+              value='Manhattan'
+              >Manhattan</button>
 
-          </div>
-          <h3>Borough</h3>
-          <div className='buttons'>
-            <button className='filter-button'
-            onClick={(event) => this.handleChange(event)}
-            name='borough'
-            value='Manhattan'
-            >Manhattan</button>
+              <button className='filter-button'
+              onClick={(event) => this.handleChange(event)}
+              name='borough'
+              value='Brooklyn'>
+              Brooklyn</button>
 
-            <button className='filter-button'
-            onClick={(event) => this.handleChange(event)}
-            name='borough'
-            value='Brooklyn'>
-            Brooklyn</button>
-
-            <button className='filter-button'
-            onClick={(event) => this.handleChange(event)}
-            name='borough'
-            value='Queens'>
-            Queens</button>
-          </div>
-
-        </article>
-        {(this.state.roomType && this.state.borough) &&
-        <article className='neighborhoods'>
-          <h3>Neighborhoods</h3>
+              <button className='filter-button'
+              onClick={(event) => this.handleChange(event)}
+              name='borough'
+              value='Queens'>
+              Queens</button>
+            </div>
+          }
+        </section>
+        
+        <section className='neighborhoods'>
+          {this.state.borough &&
+          <h3 onClick={this.toggleHood}>Neighborhoods</h3>}
+          {this.state.hoodsShow &&
           <div className='buttons'>
             {this.buildNeighborhood()}
-          </div>
-        </article> }
-        
+          </div> }
+        </section> 
       </section>
     )
   }

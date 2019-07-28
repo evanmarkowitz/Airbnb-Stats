@@ -13,7 +13,6 @@ export const Result = ({ apts, hood, google}) => {
         lat: apt.lat,
         lng: apt.long,
       }}
-      onClick = {test}
       >
       </Marker>
     })

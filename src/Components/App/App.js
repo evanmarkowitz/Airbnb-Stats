@@ -5,6 +5,7 @@ import Results from '../../Containers/Results/Results.js'
 import { Switch, Route } from 'react-router-dom';
 import {useSpring, animated} from 'react-spring'
 import { connect } from 'react-redux';
+import statue from '../../Images/statue-of-liberty.svg'
 
 
 const App = (apts, hood) => {
@@ -16,10 +17,15 @@ const App = (apts, hood) => {
 
   return (
     
-  <main className='app'>
-    <animated.h1 className='headline' style={fade}>AIRBNB PRICES BY NEIGHBORHOOD</animated.h1>
-      <Filter />
-      <Results apts={apts}/>
+    <main className='app'>
+    <header className='header'>
+      <animated.h1 className='headline' style={fade}>AIRBNB PRICES BY NEIGHBORHOOD</animated.h1>
+      <img className='statue' src={statue} alt='statue of liberty icon'></img>
+    </header>
+      <section className= 'body'>
+        <Filter />
+        <Results apts={apts}/>
+      </section>
     </main>
   );
 }
