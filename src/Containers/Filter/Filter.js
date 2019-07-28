@@ -69,12 +69,12 @@ export class Filter extends Component {
          <div className='buttons'>
             <button onClick={(event) => this.handleChange(event)}
             name='roomType'
-            value='Entire+home%2Fapt'
+            value='Entire home/apt'
             className='filter-button'>Entire Apartment</button>
 
             <button onClick={(event) => this.handleChange(event)}
             name='roomType'
-            value='Private+room'
+            value='Private room'
             className='filter-button'>Room</button>
           </div>}
         </section>

@@ -32,7 +32,7 @@ class App extends Component {
       </header>
         <section className= 'body'>
           <Filter />
-          <Results apts={this.props.apts}/>
+          <Results apts={this.props.apts} hood={this.props.hood}/>
         </section>
       </main>
     );
