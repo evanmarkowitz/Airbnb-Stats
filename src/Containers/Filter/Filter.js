@@ -108,10 +108,10 @@ export class Filter extends Component {
         <section className='neighborhoods'>
           {this.state.borough &&
           <h3 onClick={this.toggleHood}>Neighborhoods</h3>}
-          {this.state.hoodsShow &&
+          
           <div className='buttons'>
             {this.buildNeighborhood()}
-          </div> }
+          </div> 
         </section> 
       </section>
     )

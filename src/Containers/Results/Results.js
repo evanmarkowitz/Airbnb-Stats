@@ -39,7 +39,6 @@ export const Result = ({ apts, hood, google, aptType}) => {
 
   return (
     <section className='results'>
-      <p>{hood}</p>
       <Map
           google={google}
           zoom={11}
