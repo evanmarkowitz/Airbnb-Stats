@@ -14,14 +14,12 @@ import CurrApt from '../../Containers/CurrApt/CurrApt'
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      apiKey: 'cb78dd3d7e5bf3d42454677afe5f7c591993e1bd9bbe4c716752bdbe',
-    }
+   
 
   }
 
   async componentDidMount() {
-    let data = await fetchApartments(this.state.apiKey)
+    let data = await fetchApartments()
     let cleanApartments = apartmentCleaner(data.records)
     await this.props.getApts(cleanApartments)
   }
