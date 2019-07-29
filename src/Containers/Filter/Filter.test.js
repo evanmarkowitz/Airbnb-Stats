@@ -68,6 +68,36 @@ describe('Filter', () => {
     const mappedProps = mapStateToProps(initialState);
     expect(mappedProps).toEqual(initialState);
   })
+  it('filters when the filter button is clicked', () => {
+    wrapper.instance().handleChange = jest.fn()
+    wrapper.setState({boroughShow: true})
+    wrapper.find('.filter-man').simulate('click')
+    expect(wrapper.instance().handleChange).toHaveBeenCalled()
+  })
+  it('filters when the filter button is clicked', () => {
+    wrapper.instance().handleChange = jest.fn()
+    wrapper.setState({boroughShow: true})
+    wrapper.find('.filter-bk').simulate('click')
+    expect(wrapper.instance().handleChange).toHaveBeenCalled()
+  })
+  it('filters when the filter button is clicked', () => {
+    wrapper.instance().handleChange = jest.fn()
+    wrapper.setState({boroughShow: true})
+    wrapper.find('.filter-queens').simulate('click')
+    expect(wrapper.instance().handleChange).toHaveBeenCalled()
+  })
+  it('filters when the filter button is clicked', () => {
+    wrapper.instance().chooseAptType = jest.fn()
+    wrapper.setState({typeOfAprtment: true})
+    wrapper.find('.entire-home').simulate('click')
+    expect(wrapper.instance().chooseAptType).toHaveBeenCalled()
+  })
+  it('filters when the filter button is clicked', () => {
+    wrapper.instance().chooseAptType = jest.fn()
+    wrapper.setState({typeOfAprtment: true})
+    wrapper.find('.private-room').simulate('click')
+    expect(wrapper.instance().chooseAptType).toHaveBeenCalled()
+  })
 })
   describe('Filter: Map Dispatch To Props', () => {
     let initialState;
@@ -83,12 +113,14 @@ describe('Filter', () => {
     mappedProps.getApts(initialState.apts);
     expect(mockDispatch).toHaveBeenCalledWith(mockAction);
   })
+
   it('should map getHood to props', () => {
     const mockAction = getHood(initialState.hood)
     const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.getHood(initialState.hood);
     expect(mockDispatch).toHaveBeenCalledWith(mockAction);
   })
+
   it('should map getHood to props', () => {
     const mockAction = getAptType(initialState.aptType)
     const mappedProps = mapDispatchToProps(mockDispatch);

@@ -1,9 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import './Overview.css'
 
 
-const Overview = ({hood, aptType, apts}) => {
+export const Overview = ({hood, aptType, apts}) => {
   let currentAptType = aptType === '' ? 'All' : aptType
   let currentHood = hood === '' ? 'All' : hood
 
@@ -42,7 +42,7 @@ const Overview = ({hood, aptType, apts}) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   hood: state.hood,
   aptType: state.aptType,
   apts: state.apts

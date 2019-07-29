@@ -50,18 +50,13 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
     </Map>
   }
 
-
-
   const mapStyles = {
     width: '70%',
     height: '60%',
     margin: '0',
     boxShadow: '0px 20px 40px grey',
-    filter: 'grayscale(1) contrast(120%)' 
-   
   };
 
- 
   return (
     <section className='results'>
       {getInitalCenter()}
