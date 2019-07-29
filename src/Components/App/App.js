@@ -5,8 +5,10 @@ import Results from '../../Containers/Results/Results.js'
 import { connect } from 'react-redux';
 import statue from '../../Images/statue-of-liberty.svg'
 import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
-import {getApts, getHood, getAptType} from '../../actions/index.js'
+import {getApts, getCurrApt, getHood, getAptType, getMapCenter} from '../../actions/index.js'
 import Overview  from '../../Containers/Overview/Overview'
+import CurrApt from '../../Containers/CurrApt/CurrApt'
+
 
 
 class App extends Component {
@@ -24,6 +26,11 @@ class App extends Component {
     await this.props.getApts(cleanApartments)
   }
 
+  setCurrApt = (apt) => {
+    this.props.getCurrApt(apt)
+    console.log(apt)
+  }
+
   render() {
     return (
       <main className='app'>
@@ -33,8 +40,12 @@ class App extends Component {
       </header>
         <Filter />
         <section className= 'body'>
-          <Overview />
-          <Results apts={this.props.apts} hood={this.props.hood} aptType={this.props.aptType}/>
+          <aside>
+            <Overview />
+            <CurrApt/>
+          </aside>
+          <Results apts={this.props.apts} hood={this.props.hood} 
+          aptType={this.props.aptType} setCurrApt={this.setCurrApt} />
         </section>
       </main>
     );
@@ -50,6 +61,8 @@ const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   getApts: (apts) => dispatch(getApts(apts)),
+  getCurrApt: (apt) => dispatch(getCurrApt(apt)),
+  // getMapCenter: (latlong) => dispatch(getMapCenter(latlong))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
