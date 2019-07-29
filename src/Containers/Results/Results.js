@@ -35,17 +35,16 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
    let fa = filterApartments()
     let startingPoint = {lat: 40.734184867531, lng: -73.99849589734207}
     let zoomNum = 11
-    if(fa !== apts) {
+    if(fa !== apts && fa.length !== 0) {
       startingPoint = {lat: fa[0].lat, lng: fa[0].long}
       zoomNum =13 
     }
-    console.log(startingPoint)
     return <Map
     google={google}
     zoom={zoomNum}
-    // className='map'
     style={mapStyles}
     center={startingPoint}
+    initialCenter={startingPoint}
       >
     {buildApts()}
     </Map>
@@ -58,24 +57,18 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
     height: '60%',
     margin: '0',
     boxShadow: '0px 20px 40px grey',
+    filter: 'grayscale(1) contrast(120%)' 
+   
   };
 
  
   return (
     <section className='results'>
       {getInitalCenter()}
-      {/* <Map
-          google={google}
-          zoom={11}
-          // className='map'
-          style={mapStyles}
-          initialCenter={getInitalCenter()}
-        >
-      {buildApts()}
-      </Map> */}
     </section>
   )
 }
+
 
 // const mapStateToProps = (state) => ({
 //   apts: state.apts,
@@ -87,3 +80,4 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyBUjpj2w4odf15sphWyngSyGf8VLgPViy0'
 })(Result);
+

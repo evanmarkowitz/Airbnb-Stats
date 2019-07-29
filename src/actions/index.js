@@ -1,5 +1,3 @@
-import { bindActionCreators } from "redux";
-
 export const getApts = (apts) => ({
   type: 'GET_APT',
   apts
@@ -20,7 +18,7 @@ export const getCurrApt = (currApt) => ({
   currApt
 })
 
-export const getMapCenter = (mapCenter) => ({
-  type: 'GET_MAP_CENTER',
-  mapCenter
-})
+// export const getMapCenter = (mapCenter) => ({
+//   type: 'GET_MAP_CENTER',
+//   mapCenter
+// })

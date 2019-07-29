@@ -2,11 +2,11 @@
   display: flex;
   margin: auto;
   opacity: .9;
-  font-weight: 200;
+  /* font-weight: 200; */
 }
 
 .filter-section h3 {
-  font-weight: 200;
+  /* font-weight: 200; */
   margin-left: 5px;
 }
 
