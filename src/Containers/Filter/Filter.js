@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import './Filter.css'
-import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getHood, getAptType} from '../../actions/index.js'
 import { connect } from 'react-redux';
+import './Filter.css'
 
 export class Filter extends Component {
   constructor() {

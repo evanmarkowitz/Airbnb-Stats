@@ -62,7 +62,6 @@ const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   getApts: (apts) => dispatch(getApts(apts)),
   getCurrApt: (apt) => dispatch(getCurrApt(apt)),
-  // getMapCenter: (latlong) => dispatch(getMapCenter(latlong))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
