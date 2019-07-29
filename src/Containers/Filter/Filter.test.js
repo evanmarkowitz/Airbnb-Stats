@@ -98,6 +98,12 @@ describe('Filter', () => {
     wrapper.find('.private-room').simulate('click')
     expect(wrapper.instance().chooseAptType).toHaveBeenCalled()
   })
+  it.skip('should call getHood when chooseHood is called', () => {
+    let mockEvent = { preventDefault: jest.fn() }
+    wrapper.instance().props.getHood = jest.fn()
+    wrapper.instance().chooseHood(mockEvent)
+    expect(wrapper.instance().props.getHood).toHaveBeenCalled()
+  })
 })
   describe('Filter: Map Dispatch To Props', () => {
     let initialState;

@@ -26,8 +26,5 @@ describe('Current Apartment', ()=> {
     let props= {currApt: currApt}
     const mappedProps = mapStateToProps(props);
     expect(mappedProps).toEqual(props);
-
   })
-
-
 })
