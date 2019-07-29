@@ -65,14 +65,6 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
   )
 }
 
-
-// const mapStateToProps = (state) => ({
-//   apts: state.apts,
-//   hood: state.hood
-// })
-
-// export  connect(mapStateToProps)(Result)
-
 export default GoogleApiWrapper({
   apiKey: googleApiKey
 })(Result);
