@@ -8,8 +8,7 @@ import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getCurrApt} from '../../actions/index.js'
 import Overview  from '../../Containers/Overview/Overview'
 import CurrApt from '../../Containers/CurrApt/CurrApt'
-
-
+import PropTypes from 'prop-types'
 
 export class App extends Component {
   constructor() {
@@ -19,15 +18,13 @@ export class App extends Component {
     }
   }
   
- 
   async componentDidMount() {
     let data;
     try {
       data = await fetchApartments()
     } catch(error) {
       this.setState({ error: error.message})
-    }
-    
+    }  
     let cleanApartments = apartmentCleaner(data.records)
     await this.props.getApts(cleanApartments)
   }
@@ -54,12 +51,19 @@ export class App extends Component {
   }
 }
 
+App.propTypes = {
+  apts: PropTypes.array,
+  hood: PropTypes.string,
+  aptType: PropTypes.string,
+  getApts: PropTypes.func,
+  getCurrApt: PropTypes.func
+}
+
 export const mapStateToProps = (state) => ({
   apts: state.apts,
   hood: state.hood,
   aptType: state.aptType
 })
-
 
 export const mapDispatchToProps = (dispatch) => ({
   getApts: (apts) => dispatch(getApts(apts)),

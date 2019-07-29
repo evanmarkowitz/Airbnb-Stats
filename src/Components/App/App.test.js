@@ -19,6 +19,10 @@ describe('App: Map Dispatch and StateTo Props', () => {
   it('should map snapshot', () =>{
     expect(wrapper).toMatchSnapshot()
   })
+  it('should map snapshot', () =>{
+    wrapper.setState({error: 'Failed to fetch apartments'})
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('should map getApt to props', () => {
     const mockAction = getApts(initialState.apts)
