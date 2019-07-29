@@ -1,5 +1,7 @@
 import React from 'react';
 import { CurrApt, mapStateToProps } from './CurrApt';
+import {shallow} from 'enzyme'
+
 
 describe('Current Apartment', ()=> {
     let wrapper;
@@ -14,7 +16,7 @@ describe('Current Apartment', ()=> {
       numReviews: 60,
       price: 300, 
       reviewsPerMonth:3.21}
-    wrapper = <CurrApt currApt={currApt}/>
+    wrapper = shallow(<CurrApt currApt={currApt}/>)
   })
 
   it('should match the snapshot', () => {
