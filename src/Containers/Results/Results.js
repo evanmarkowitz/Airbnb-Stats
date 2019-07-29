@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import { Map, GoogleApiWrapper , Marker} from 'google-maps-react';
+import { googleApiKey } from '../../api_key'
 import './Results.css'
 
 
@@ -50,18 +50,13 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
     </Map>
   }
 
-
-
   const mapStyles = {
     width: '70%',
     height: '60%',
     margin: '0',
     boxShadow: '0px 20px 40px grey',
-    filter: 'grayscale(1) contrast(120%)' 
-   
   };
 
- 
   return (
     <section className='results'>
       {getInitalCenter()}
@@ -69,15 +64,7 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
   )
 }
 
-
-// const mapStateToProps = (state) => ({
-//   apts: state.apts,
-//   hood: state.hood
-// })
-
-// export  connect(mapStateToProps)(Result)
-
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBUjpj2w4odf15sphWyngSyGf8VLgPViy0'
+  apiKey: googleApiKey
 })(Result);
 

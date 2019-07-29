@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import './Filter.css'
-import { fetchApartments, apartmentCleaner } from '../../ApiCalls/apiCall'
 import {getApts, getHood, getAptType} from '../../actions/index.js'
 import { connect } from 'react-redux';
+import './Filter.css'
 
 export class Filter extends Component {
   constructor() {
@@ -55,7 +54,6 @@ export class Filter extends Component {
   }
 
   chooseAptType = (event) => {
-    console.log([event.target.value][0])
     let chosenAptType =  [event.target.value][0]
     this.props.getAptType(chosenAptType)
   }
@@ -72,31 +70,31 @@ export class Filter extends Component {
             <button onClick={(event) => this.chooseAptType(event)}
             name='roomType'
             value='Entire home/apt'
-            className='filter-button'>Entire Apartment</button>
+            className='filter-button entire-home'>Entire Apartment</button>
 
             <button onClick={(event) => this.chooseAptType(event)}
             name='roomType'
             value='Private room'
-            className='filter-button'>Room</button>
+            className='filter-button private-room'>Room</button>
           </div>}
         </section>
         <section className='borough'>
           <h3 onClick={this.toggleBorough}>Borough</h3>
           {this.state.boroughShow && 
             <div className='buttons'>
-              <button className='filter-button'
+              <button className='filter-button filter-man'
               onClick={(event) => this.handleChange(event)}
               name='borough'
               value='Manhattan'
               >Manhattan</button>
 
-              <button className='filter-button'
+              <button className='filter-button filter-bk'
               onClick={(event) => this.handleChange(event)}
               name='borough'
               value='Brooklyn'>
               Brooklyn</button>
 
-              <button className='filter-button'
+              <button className='filter-button filter-queens'
               onClick={(event) => this.handleChange(event)}
               name='borough'
               value='Queens'>

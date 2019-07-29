@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { aptTypeReducer } from '../../reducers/aptTypeReducer';
 
 
 
-const CurrApt = ({currApt}) => {
+
+export const CurrApt = ({currApt}) => {
 
   return(
     <article className='curr-apt'>
@@ -19,7 +19,7 @@ const CurrApt = ({currApt}) => {
 
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   currApt: state.currApt
 })
 
