@@ -40,4 +40,5 @@ Then, go to http://localhost:3001/ in your browser to see the code running in th
 
 ## Screenshots
 
-![Filting](https://github.com/evanmarkowitz/Airbnb-stats/blob/master/src/Images/Filtering.gif)
+![Filtering](https://github.com/evanmarkowitz/Airbnb-stats/blob/master/src/Images/Filtering.gif)
+![Selecting](https://github.com/evanmarkowitz/Airbnb-stats/blob/master/src/Images/Selecting.gif)
