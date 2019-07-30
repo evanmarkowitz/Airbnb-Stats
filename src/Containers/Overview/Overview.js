@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import './Overview.css'
-
+import PropTypes from 'prop-types'
 
 export const Overview = ({hood, aptType, apts}) => {
   let currentAptType = aptType === '' ? 'All' : aptType
@@ -40,6 +40,12 @@ export const Overview = ({hood, aptType, apts}) => {
       <p><span className='key'>Average Price:</span> {calcAvgPrice()}</p>
     </section>
   )
+}
+
+Overview.propTypes = {
+  hood: PropTypes.string,
+  aptType: PropTypes.string,
+  apts: PropTypes.array,
 }
 
 export const mapStateToProps = (state) => ({

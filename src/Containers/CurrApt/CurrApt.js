@@ -16,8 +16,9 @@ export const CurrApt = ({currApt}) => {
 }
 
 CurrApt.propTypes = {
-  currApt: PropTypes.string
+  currApt: PropTypes.object
 }
+
 export const mapStateToProps = (state) => ({
   currApt: state.currApt
 })
