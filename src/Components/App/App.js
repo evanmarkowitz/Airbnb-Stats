@@ -33,7 +33,10 @@ export class App extends Component {
     return (
       <main className='app'>
       <header className='header'>
-        <h1 className='headline'>AIRBNB PRICES BY NEIGHBORHOOD</h1>
+        <div>
+          <h1 className='headline'>AirLytics</h1>
+          <h2 className='headline'>Analytics for NYC <span className='airbnb'>Airbnb</span> Hosts</h2>
+        </div>
         {this.state.error && <p>this.state.error</p>}
         <img className='statue' src={statue} alt='statue of liberty icon'></img>
       </header>

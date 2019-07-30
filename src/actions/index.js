@@ -18,7 +18,4 @@ export const getCurrApt = (currApt) => ({
   currApt
 })
 
-// export const getMapCenter = (mapCenter) => ({
-//   type: 'GET_MAP_CENTER',
-//   mapCenter
-// })
+
