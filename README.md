@@ -2,7 +2,7 @@
 
 Airbnb Analytics is an application that allows users to sort through Airbnb listings in New York city.  They are able to sort by the Type of Apartment, as well as sort by the neigborhood.  When a filter has been chosen, the map, powered by Google Maps, will zoom into the neighborhood and reveal listings in that neghborhood.  These listings can be clicked on and their information will be rendered on the page.
 
-It uses Redux to store the fetched data locally and React on the front end.  Additionally the Google Maps React Component is used.
+It uses Redux to store the fetched data locally and React on the front end.  Additionally the Google Maps React Component is used to dynamically display the data.
 
 **Click 'Type of apartment'** to enable the dropdown and then filter by apartment type.
 
