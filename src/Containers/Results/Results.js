@@ -2,6 +2,7 @@ import React from 'react'
 import { Map, GoogleApiWrapper , Marker} from 'google-maps-react';
 import { googleApiKey } from '../../api_key'
 import './Results.css'
+import PropTypes from 'prop-types'
 
 
 export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
@@ -63,6 +64,14 @@ export const Result = ({ apts, hood, google, aptType, setCurrApt}) => {
     </section>
   )
 }
+
+Result.propTypes = {
+  apts: PropTypes.array,
+  hood: PropTypes.string,
+  setCurrApt: PropTypes.func,
+  aptType: PropTypes.string
+}
+
 
 export default GoogleApiWrapper({
   apiKey: googleApiKey
