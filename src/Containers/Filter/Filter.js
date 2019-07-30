@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {getApts, getHood, getAptType} from '../../actions/index.js'
 import { connect } from 'react-redux';
 import './Filter.css'
+import PropTypes from 'prop-types'
 
 export class Filter extends Component {
   constructor() {
@@ -114,6 +115,13 @@ export class Filter extends Component {
       </section>
     )
   }
+}
+
+Filter.propTypes = {
+  apts: PropTypes.array,
+  getApts: PropTypes.func,
+  getHood: PropTypes.func,
+  getAptType: PropTypes.func,
 }
 
 export const mapStateToProps = (state) => ({
