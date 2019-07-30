@@ -4,8 +4,7 @@ describe('hoodReducer', () => {
   
   it('should return default state', () => {
     const expected = '';
-    const result = hoodReducer(undefined, '');
-    
+    const result = hoodReducer(undefined, ''); 
     expect(result).toEqual(expected);
   })
 
