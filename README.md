@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Airbnb Analytics is an application that allows users to sort through Airbnb listings in New York city.  They are able to sort by the Type of Apartment, as well as sort by the neigborhood.  When a filter has been chosen, the map, powered by Google Maps, will zoom into the neighborhood and reveal listings in that neghborhood.  These listings can be clicked on and their information will be rendered on the page.
 
-In the project directory, you can run:
+It uses Redux to store the fetched data locally and React on the front end.  Additionally the Google Maps React Component is used.
 
-### `npm start`
+**Click 'Type of apartment'** to enable the dropdown and then filter by apartment type.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Click 'Borough'** to enable the dropdown and then select the borough you would like to explore.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**Click one one of the neigborhoods** and this will zoom into the neighborhood.
 
-### `npm test`
+**Click on the map marker** and this will display the listings information on the Selected Apartment component.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+```
+git clone https://github.com/evanmarkowitz/Airbnb-Stats.git
+```
+Once you have cloned the repo, install the library dependencies. Run:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install
+```
+To view the app in action, run the following command in your terminal:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+npm start
+```
+Then, go to http://localhost:3001/ in your browser to see the code running in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Learning goals
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Learn how to wireframe and build out a concept from scratch.
+- Utilize Redux actions, reducers, store, methods, setup.
+- Keep state based components to a minimum and leverage more functional components.
+- Use a modular architecture for your application file structure.
+- Use propTypes for every component receiving props.
