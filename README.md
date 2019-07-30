@@ -37,3 +37,7 @@ Then, go to http://localhost:3001/ in your browser to see the code running in th
 - Keep state based components to a minimum and leverage more functional components.
 - Use a modular architecture for your application file structure.
 - Use propTypes for every component receiving props.
+
+## Screenshots
+
+![Filting](https://github.com/evanmarkowitz/Airbnb-stats/blob/master/src/Images/Filtering.gif)
