@@ -14,6 +14,7 @@
 .statue {
   width: 50px;
   margin-right: 25px;
+  align-self: flex-end;
 }
 
 .header{
@@ -28,4 +29,8 @@
 
 aside {
   width: 300px;
+}
+
+.airbnb {
+  color: #FF595F;
 }
