@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
-
-
+import PropTypes from 'prop-types'
 
 export const CurrApt = ({currApt}) => {
 
@@ -14,11 +12,12 @@ export const CurrApt = ({currApt}) => {
       <p><span className='key'>Number of Reviews:</span> {currApt.numReviews}</p>
       <p><span className='key'>Link:</span> <a href={`www.airbnb.com/rooms/${currApt.id}`}>AirBNB</a></p>
     </article>
-
   )
-
 }
 
+CurrApt.propTypes = {
+  currApt: PropTypes.string
+}
 export const mapStateToProps = (state) => ({
   currApt: state.currApt
 })
